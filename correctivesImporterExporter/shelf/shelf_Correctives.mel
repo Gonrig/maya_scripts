@@ -1,0 +1,43 @@
+global proc shelf_Correctives () {
+    global string $gBuffStr;
+    global string $gBuffStr0;
+    global string $gBuffStr1;
+
+
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "#Importador de correctivos \nimport maya.cmds as cmds\nimport json\nimport os\nimport sys\n\n# Importacion de modulos\nsistemaop = sys.platform\nwindows = [\"win32\", \"win64\"]\nmac = \"darwin\"\nhomedir = os.path.expanduser(\"~\")\nfor win in windows:\n\tif sistemaop == win:\n\t\thomedir_win = \"{}/maya/scripts/correctivesImporterExporter/modules\".format(homedir)\n\t\twindow_path =\"{}/maya/scripts/correctivesImporterExporter/window/correctiveExporterImporterWindow.ui\".format(homedir)\n\t\tsys.path.append(homedir_win)\n\t\timport correctiveImporter as ci\n\t\timport correctiveExporter as ce\n\t\timport pyside_utils as py\n\t\t\t\t\nif sistemaop == mac:\n\thomedir_mac = \"{}/Documents/maya/correctivesImporterExporter/modules\".format(homedir)\n\twindow_path =\"{}/Documents/maya/correctivesImporterExporter/window/correctiveExporterImporterWindow.ui\".format(homedir)\n\tsys.path.append(homedir_mac)\n\timport correctiveImporter as ci\n\timport correctiveExporter as ce\n\timport pyside_utils as py\n\nwin = py.loadUi(window_path)\nwin.exportButtom.clicked.connect(ce.CorrectiveExporter)\nwin.importButtom.clicked.connect(ci.CorrectiveImporter)" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "CorrectivesImporterExporter" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -font "plainLabelFont" 
+        -imageOverlayLabel "CorrectivesImporterExporter" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "C:/Users/User/Documents/maya/scripts/correctivesImporterExporter/icons/correctiveExpImp.png" 
+        -image1 "C:/Users/User/Documents/maya/scripts/correctivesImporterExporter/icons/correctiveExpImp.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "#Importador de correctivos \nimport maya.cmds as cmds\nimport json\nimport os\nimport sys\n\n# Importacion de modulos\nsistemaop = sys.platform\nwindows = [\"win32\", \"win64\"]\nmac = \"darwin\"\nhomedir = os.path.expanduser(\"~\")\nfor win in windows:\n\tif sistemaop == win:\n\t\thomedir_win = \"{}/maya/scripts/correctivesImporterExporter/modules\".format(homedir)\n\t\twindow_path =\"{}/maya/scripts/correctivesImporterExporter/window/correctiveExporterImporterWindow.ui\".format(homedir)\n\t\tsys.path.append(homedir_win)\n\t\timport correctiveImporter as ci\n\t\timport correctiveExporter as ce\n\t\timport pyside_utils as py\n\t\t\t\t\nif sistemaop == mac:\n\thomedir_mac = \"{}/Documents/maya/correctivesImporterExporter/modules\".format(homedir)\n\twindow_path =\"{}/Documents/maya/correctivesImporterExporter/window/correctiveExporterImporterWindow.ui\".format(homedir)\n\tsys.path.append(homedir_mac)\n\timport correctiveImporter as ci\n\timport correctiveExporter as ce\n\timport pyside_utils as py\n\nwin = py.loadUi(window_path)\nwin.exportButtom.clicked.connect(ce.CorrectiveExporter)\nwin.importButtom.clicked.connect(ci.CorrectiveImporter)" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+
+} 
